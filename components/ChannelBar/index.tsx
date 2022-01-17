@@ -1,11 +1,20 @@
 import { FaChevronDown, FaChevronRight, FaHashtag } from "react-icons/fa";
 import { IoPersonAdd } from "react-icons/io5";
 import { useState } from "react";
-import { rooms } from "../../data/rooms";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function ChannelBar() {
-  const allRooms = rooms.map((room) => (
+type Room = {
+  id: string;
+  roomName: string;
+  rooms: string[];
+};
+
+export default function ChannelBar({
+  rooms: { data },
+}: {
+  rooms: { data: Room[] };
+}) {
+  const allRooms = data.map((room) => (
     <ChannelRooms
       key={room.id}
       id={room.id}
@@ -53,16 +62,19 @@ const ChannelRooms = ({
         />
         <h2>{roomName}</h2>
       </div>
-      {roomShow && (
-        <motion.div
-          initial={{ y: -10, opacity: 0.8 }}
-          animate={{ y: 0, opacity: 1 }}
-        >
-          {rooms.map((room) => (
-            <ChannelRoom key={room} roomName={room} />
-          ))}
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {roomShow && (
+          <motion.div
+            initial={{ y: -15, opacity: 0.8 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -15, opacity: 0.8, transition: { duration: 0.2 } }}
+          >
+            {rooms.map((room) => (
+              <ChannelRoom key={room} roomName={room} />
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

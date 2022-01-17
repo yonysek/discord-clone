@@ -28,7 +28,7 @@
   }
 
   .channel-rooms-title {
-    @apply flex items-center justify-start gap-1 text-xs font-bold uppercase;
+    @apply z-10 flex items-center justify-start gap-1 text-xs font-bold uppercase;
   }
 
   .channel-rooms-room {
