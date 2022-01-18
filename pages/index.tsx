@@ -1,9 +1,8 @@
 import ChannelBar from "../components/ChannelBar";
 import SideBar from "../components/SideBar";
-import {Room} from './../types/rooms'
+import { Room } from "./../types/rooms";
 
-
-export default function App({ rooms }: {rooms:{data: Room[]}}) {
+export default function App({ rooms }: { rooms: { data: Room[] } }) {
   return (
     <div className="flex">
       <SideBar />
@@ -13,7 +12,11 @@ export default function App({ rooms }: {rooms:{data: Room[]}}) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch("/api/rooms");
+  const url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : `${process.env.VERCEL_URL}/api/rooms`;
+  const res = await fetch(url);
   const data = await res.json();
 
   return {
