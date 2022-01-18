@@ -12,11 +12,10 @@ export default function App({ rooms }: { rooms: { data: Room[] } }) {
 }
 
 export async function getStaticProps() {
-  const url =
-    process.env.NEXT_PUBLIC_VERCEL_ENV === "development"
-      ? "http://localhost:3000"
-      : `${process.env.VERCEL_URL}/api/rooms`;
-  const res = await fetch(url);
+  console.log("HEEEEEEEELP" + process.env.NODE_ENV);
+  console.log("HEEEEEEEELP" + process.env.VERCEL_URL);
+
+  const res = await fetch("http://localhost:3000/api/rooms");
   const data = await res.json();
 
   return {
