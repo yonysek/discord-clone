@@ -13,7 +13,7 @@ export default function App({ rooms }: { rooms: { data: Room[] } }) {
 
 export async function getStaticProps() {
   const url =
-    process.env.NODE_ENV === "development"
+    process.env.NEXT_PUBLIC_VERCEL_ENV === "development"
       ? "http://localhost:3000"
       : `${process.env.VERCEL_URL}/api/rooms`;
   const res = await fetch(url);
