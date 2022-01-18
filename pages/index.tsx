@@ -11,7 +11,7 @@ export default function App({ rooms }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/rooms");
+  const res = await fetch("/api/rooms");
   const data = await res.json();
 
   return {
