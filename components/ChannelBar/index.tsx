@@ -2,12 +2,7 @@ import { FaChevronDown, FaChevronRight, FaHashtag } from "react-icons/fa";
 import { IoPersonAdd } from "react-icons/io5";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-type Room = {
-  id: string;
-  roomName: string;
-  rooms: string[];
-};
+import {Room} from '../../types/rooms'
 
 export default function ChannelBar({
   rooms: { data },
@@ -74,7 +69,7 @@ const ChannelRooms = ({
             ))}
           </motion.div>
         )}
-      </AnimatePresence>
+                </AnimatePresence>
     </div>
   );
 };

@@ -1,7 +1,9 @@
 import ChannelBar from "../components/ChannelBar";
 import SideBar from "../components/SideBar";
+import {Room} from './../types/rooms'
 
-export default function App({ rooms }) {
+
+export default function App({ rooms }: {rooms:{data: Room[]}}) {
   return (
     <div className="flex">
       <SideBar />
