@@ -3,7 +3,7 @@ import { FaPoo, FaDiscord } from "react-icons/fa";
 
 export default function SideBar() {
   return (
-    <div className="fixed top-0 left-0 flex flex-col w-16 h-screen bg-dcLightGray dark:bg-dcSuperDarkGray ">
+    <div className="sidebar">
       <SideBarIcon icon={<FaDiscord size="24" />} />
       <Divider />
       <SideBarIcon icon={<FaPoo size="24" />} />

@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+  .sidebar {
+    @apply fixed top-0 left-0 flex flex-col w-16 h-screen bg-dcLightGray dark:bg-dcSuperDarkGray;
+  }
   .sidebar-icon {
     @apply relative flex items-center justify-center w-12 h-12 mx-auto my-2 transition-all duration-300 ease-linear bg-white cursor-pointer rounded-3xl text-dcDarkGreen dark:bg-dcDarkGray hover:bg-dcDarkGreen dark:hover:bg-dcDarkGreen hover:text-white hover:rounded-xl;
   }
@@ -33,5 +36,14 @@
 
   .channel-rooms-room {
     @apply flex items-center w-auto gap-1 p-1 px-2 mx-4 transition-all rounded-md hover:bg-gray-200;
+  }
+  .topnav {
+    @apply flex items-center justify-end w-screen h-12 gap-4 pr-4 text-gray-500 bg-white shadow-md dark:bg-dcGray dark:text-gray-100;
+  }
+  .topnav-input {
+    @apply flex items-center justify-center gap-2 p-1 pl-3 rounded-lg shadow-lg text-inherit bg-dcSuperLightGray;
+  }
+  .topnav-icon {
+    @apply transition-all hover:scale-[1.1] hover:text-gray-700 cursor-pointer;
   }
 }

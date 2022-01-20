@@ -7,6 +7,7 @@ import { Room } from "../../types/rooms";
 export default function ChannelBar() {
   const [rooms, setRooms] = useState<Room[]>();
 
+  // Fetches data about rooms
   const fetchRooms = useCallback(async () => {
     const res = await fetch("/api/rooms");
     const data = await res.json();
@@ -17,8 +18,10 @@ export default function ChannelBar() {
     fetchRooms();
   }, [fetchRooms]);
 
+  // Before data is rendered
   if (!rooms) return <></>;
 
+  // Renders every room respectively
   const allRooms = rooms.map((room) => (
     <ChannelRooms
       key={room.id}
@@ -76,7 +79,7 @@ const ChannelRooms = ({
             exit={{ y: -15, opacity: 0.8, transition: { duration: 0.2 } }}
           >
             {rooms.map((room) => (
-              <ChannelRoom key={room} roomName={room} />
+              <ChannelRoom key={id} roomName={room} />
             ))}
           </motion.div>
         )}
