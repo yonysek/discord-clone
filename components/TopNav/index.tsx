@@ -7,6 +7,7 @@ import {
 } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import useDarkMode from "../../hooks/useDarkMode";
 
 export default function TopNav() {
   return (
@@ -27,10 +28,10 @@ export default function TopNav() {
 }
 
 const DarkModeSwitch = () => {
-  const [mode, setMode] = useState("light");
+  const { changeMode, mode } = useDarkMode();
 
   const clickHandler = () => {
-    mode === "light" ? setMode("dark") : setMode("light");
+    changeMode();
   };
 
   return (

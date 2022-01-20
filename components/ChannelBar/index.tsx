@@ -3,6 +3,7 @@ import { IoPersonAdd } from "react-icons/io5";
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Room } from "../../types/rooms";
+import { start } from "repl";
 
 export default function ChannelBar() {
   const [rooms, setRooms] = useState<Room[]>();
@@ -23,12 +24,7 @@ export default function ChannelBar() {
 
   // Renders every room respectively
   const allRooms = rooms.map((room) => (
-    <ChannelRooms
-      key={room.id}
-      id={room.id}
-      roomName={room.roomName}
-      rooms={room.rooms}
-    />
+    <ChannelRooms key={room.id} roomName={room.roomName} rooms={room.rooms} />
   ));
 
   return (
@@ -47,15 +43,24 @@ const ChannelName = ({ name }: { name: string }) => (
 );
 
 const ChannelRooms = ({
-  id,
   roomName,
   rooms,
 }: {
-  id: string;
   roomName: string;
   rooms: string[];
 }) => {
   const [roomShow, setRoomShow] = useState(false);
+
+  const variants = {
+    start: {
+      y: -10,
+      opacity: 8,
+      transition: { type: "tween", duration: 0.15 },
+    },
+    end: { y: 0, opacity: 1, transition: { type: "tween", duration: 0.15 } },
+  };
+
+  console.log(roomShow);
 
   return (
     <div className="channel-rooms">
@@ -71,15 +76,17 @@ const ChannelRooms = ({
         />
         <h2>{roomName}</h2>
       </div>
+
       <AnimatePresence>
         {roomShow && (
           <motion.div
-            initial={{ y: -15, opacity: 0.8 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -15, opacity: 0.8, transition: { duration: 0.2 } }}
+            variants={variants}
+            initial="start"
+            animate="end"
+            exit="start"
           >
             {rooms.map((room) => (
-              <ChannelRoom key={id} roomName={room} />
+              <ChannelRoom key={room} roomName={room} />
             ))}
           </motion.div>
         )}
