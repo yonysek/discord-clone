@@ -1,10 +1,16 @@
-import { FaChevronDown, FaChevronRight, FaHashtag } from "react-icons/fa";
-import { IoPersonAdd } from "react-icons/io5";
+import {
+  FaChevronDown,
+  FaChevronRight,
+  FaHashtag,
+  FaMicrophone,
+  FaHeadphones,
+} from "react-icons/fa";
+import { IoPersonAdd, IoSettingsSharp } from "react-icons/io5";
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Room } from "../../types/rooms";
-import { start } from "repl";
 
+// Components fetches data from data/rooms.json and create room according to it.
 export default function ChannelBar() {
   const [rooms, setRooms] = useState<Room[]>();
 
@@ -28,9 +34,12 @@ export default function ChannelBar() {
   ));
 
   return (
-    <div className="channel-bar">
-      <ChannelName name="Channel" />
-      {allRooms}
+    <div className="flex flex-col justify-between ml-16 bg-dcSuperLightGray dark:bg-dcDarkGray w-80">
+      <div className="channel-bar">
+        <ChannelName name="Channel" />
+        {allRooms}
+      </div>
+      <UserInfo />
     </div>
   );
 }
@@ -59,8 +68,6 @@ const ChannelRooms = ({
     },
     end: { y: 0, opacity: 1, transition: { type: "tween", duration: 0.15 } },
   };
-
-  console.log(roomShow);
 
   return (
     <div className="channel-rooms">
@@ -102,3 +109,37 @@ const ChannelRoom = ({ roomName }: { roomName: string }) => (
     <IoPersonAdd className="ml-auto transition-all opacity-0 group-hover:opacity-100" />
   </div>
 );
+
+const UserInfo = () => {
+  return (
+    <div className="user-info">
+      <div className="flex gap-2">
+        <div className="user-icon">
+          <img
+            src="https://robohash.org/yonas"
+            alt="profile pic"
+            className="object-cover rounded-full"
+          />
+        </div>
+        <div className="flex flex-col justify-center">
+          <strong className="text-black dark:text-white">yonas</strong>
+          <span className="text-[10px]">#1234</span>
+        </div>
+      </div>
+      <div className="flex items-center justify-center gap-2">
+        <FaMicrophone
+          size="16"
+          className="cursor-pointer hover:text-gray-600"
+        />
+        <FaHeadphones
+          size="16"
+          className="cursor-pointer hover:text-gray-600"
+        />
+        <IoSettingsSharp
+          size="16"
+          className="cursor-pointer hover:text-gray-600"
+        />
+      </div>
+    </div>
+  );
+};

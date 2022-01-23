@@ -1,16 +1,32 @@
-import { BsGlobe, BsFillLightningFill, BsSearch } from "react-icons/bs";
+import {
+  BsGlobe,
+  BsFillLightningFill,
+  BsSearch,
+  BsTerminalFill,
+} from "react-icons/bs";
 import { FaPoo, FaDiscord } from "react-icons/fa";
 
+// Sidebar with icons and tooltips
 export default function SideBar() {
   return (
     <div className="sidebar">
-      <SideBarIcon icon={<FaDiscord size="24" />} />
+      <SideBarIcon
+        icon={<FaDiscord size="24" />}
+        tooltip="UNDER CONSTRUCTION!"
+      />
       <Divider />
-      <SideBarIcon icon={<FaPoo size="24" />} />
-      <SideBarIcon icon={<BsGlobe size="24" />} />
-      <SideBarIcon icon={<BsFillLightningFill size="24" />} />
+      <SideBarIcon icon={<FaPoo size="24" />} tooltip="Server about..." />
+      <SideBarIcon icon={<BsGlobe size="24" />} tooltip="Geography lovers!" />
+      <SideBarIcon
+        icon={<BsFillLightningFill size="24" />}
+        tooltip="WE LOVE STORMS!"
+      />
+      <SideBarIcon
+        icon={<BsTerminalFill size="24" />}
+        tooltip="Coding masters"
+      />
       <Divider />
-      <SideBarIcon icon={<BsSearch size="20" />} />
+      <SideBarIcon icon={<BsSearch size="20" />} tooltip="Search" />
     </div>
   );
 }

@@ -11,7 +11,7 @@
   }
 
   .sidebar-tooltip {
-    @apply absolute w-auto p-2 m-2 text-xs font-bold text-white transition-all duration-100 origin-left scale-0 rounded-md shadow-md left-14 bg-dcSuperDarkGray;
+    @apply absolute p-2 m-2 text-xs font-bold text-white transition-all duration-100 origin-left scale-0 rounded-md shadow-md min-w-max left-14 bg-dcSuperDarkGray;
   }
 
   .sidebar-hr {
@@ -19,7 +19,7 @@
   }
 
   .channel-bar {
-    @apply h-screen m-0 ml-16 overflow-x-hidden w-80 bg-dcSuperLightGray dark:bg-dcDarkGray;
+    @apply h-screen m-0 overflow-x-hidden;
   }
 
   .channel-name {
@@ -31,14 +31,22 @@
   }
 
   .channel-rooms-title {
-    @apply z-10 flex items-center justify-start gap-1 text-xs font-bold uppercase;
+    @apply flex items-center justify-start gap-1 text-xs font-bold uppercase;
   }
 
   .channel-rooms-room {
     @apply flex items-center w-auto gap-1 p-1 px-2 mx-4 transition-all rounded-md hover:bg-gray-200;
   }
+
+  .user-info {
+    @apply bg-gray-200 dark:bg-[#282b2f] flex items-center justify-between p-2 text-gray-500 h-12 text-xs;
+  }
+  .user-icon {
+    @apply relative flex items-center justify-center w-10 h-10 m-2 bg-gray-100 rounded-full cursor-pointer after:z-10 dark:bg-gray-500 after:bg-green-500 after:w-4 after:h-4 after:rounded-full after:absolute after:left-6 after:top-6 after:border-[3px] after:border-gray-200 dark:after:border-[#282b2f];
+  }
+
   .topnav {
-    @apply flex items-center justify-end w-screen h-12 gap-4 pr-4 text-gray-500 bg-white shadow-md dark:bg-dcGray dark:text-gray-100;
+    @apply flex items-center justify-end w-full h-12 gap-4 pr-4 text-gray-500 bg-white shadow-md dark:bg-dcGray dark:text-gray-100;
   }
   .topnav-input {
     @apply flex items-center justify-center gap-2 p-1 pl-3 rounded-lg shadow-lg text-inherit bg-dcSuperLightGray;
@@ -46,4 +54,15 @@
   .topnav-icon {
     @apply transition-all hover:scale-[1.1] hover:text-gray-700  dark:hover:text-gray-300 cursor-pointer;
   }
+
+  .content-text {
+    @apply flex items-center w-full gap-2;
+  }
+  .content-input-text {
+    @apply fixed flex items-center justify-center bg-gray-200 rounded-lg dark:bg-gray-600 left-[22rem] right-8 bottom-2 p-2 text-gray-500 dark:text-gray-200 gap-3 px-4 shadow-lg;
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
 }

@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 export default function useDarkMode() {
   const [mode, setMode] = useState("light");
 
+  // Fetches data from local storage if possible.
   useEffect(() => {
     if (typeof window !== "undefined") {
       const item = localStorage.getItem("mode");
-      console.log(item);
       const setDark = () => {
         setMode("dark");
         window.document.body.classList.add("dark");
@@ -16,6 +16,7 @@ export default function useDarkMode() {
     }
   }, []);
 
+  // Changes mode and set it in local storage.
   const changeMode = () => {
     setMode(() => (mode === "light" ? "dark" : "light"));
     const item = window.localStorage.getItem("mode");
