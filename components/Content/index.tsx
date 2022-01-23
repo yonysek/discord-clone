@@ -15,18 +15,19 @@ export default function Content() {
         text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit."
         time="19/07/2004"
       />
-      <Text
-        name="Josiac"
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        "
-        time="few days ago"
-      />
+
       <Text
         name="Ciaroh"
         text="Lorem ipsum dolor sit amet, consectet."
         time="yesterday"
       />
+
       <Text name="Creame" text="Lorem." time="3 hours ago" />
+      <Text
+        name="Darwin"
+        text="Lorem ipsum dolor sit amet, consectet."
+        time="hour and half ago"
+      />
       <Text name="Calvin" text="Lorem ipsum." time="hour ago" />
       <Text
         name="Aliya"
@@ -61,14 +62,20 @@ const Text = ({
   text: string;
   time: string;
 }) => {
+  const imgUrl = `https://robohash.org/${Math.floor(
+    Math.random() * 10000
+  )}?set=set4`;
+
+  // Text content with Next Image so the webpage loading time is faster.
   return (
     <div className="p-4 text-black content-text dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
       <Image
-        src={`https://robohash.org/${Math.floor(
-          Math.random() * 10000
-        )}?set=set4`}
+        loader={() => imgUrl}
+        src={imgUrl}
         alt="profile picture"
-        className="object-cover w-12 bg-gray-200 rounded-full border-1"
+        className="bg-gray-200 rounded-full border-1"
+        width="48"
+        height="48"
       />
       <div>
         <h3 className="font-bold">
