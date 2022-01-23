@@ -4,7 +4,7 @@ import {
   BsEmojiLaughingFill,
 } from "react-icons/bs";
 import { AiOutlineFileGif } from "react-icons/ai";
-import Image from "next/Image";
+import Image from "next/image";
 
 // Chatting room with hardcoded messages
 export default function Content() {
