@@ -4,6 +4,7 @@ import {
   BsEmojiLaughingFill,
 } from "react-icons/bs";
 import { AiOutlineFileGif } from "react-icons/ai";
+import Image from "next/Image";
 
 // Chatting room with hardcoded messages
 export default function Content() {
@@ -62,7 +63,7 @@ const Text = ({
 }) => {
   return (
     <div className="p-4 text-black content-text dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
-      <img
+      <Image
         src={`https://robohash.org/${Math.floor(
           Math.random() * 10000
         )}?set=set4`}
