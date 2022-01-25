@@ -78,7 +78,7 @@ const Text = ({
         height="48"
       />
       <div>
-        <h3 className="font-bold">
+        <h3 className="font-bold cursor-pointer">
           {name} <span className="text-gray-500">{time}</span>
         </h3>
         <p>{text}</p>
