@@ -22,7 +22,10 @@ export default function TopNav() {
         <MdSearch size="24" className="topnav-icon" />
       </div>
       <MdInbox size="24" className="topnav-icon" />
-      <MdHelpOutline size="24" className="topnav-icon" />
+      <MdHelpOutline
+        size="24"
+        className=" dark:text-gray-500 topnav-icon hover:text-gray-300 dark:hover:text-gray-700"
+      />
     </div>
   );
 }
