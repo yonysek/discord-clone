@@ -126,19 +126,10 @@ const UserInfo = () => {
           <span className="text-[10px]">#1234</span>
         </div>
       </div>
-      <div className="flex items-center justify-center gap-2">
-        <FaMicrophone
-          size="16"
-          className="cursor-pointer hover:text-gray-600"
-        />
-        <FaHeadphones
-          size="16"
-          className="cursor-pointer hover:text-gray-600"
-        />
-        <IoSettingsSharp
-          size="16"
-          className="cursor-pointer hover:text-gray-600"
-        />
+      <div className="flex items-center justify-center gap-1">
+        <FaMicrophone size="24" className="user-settings-icon" />
+        <FaHeadphones size="24" className="user-settings-icon" />
+        <IoSettingsSharp size="24" className="user-settings-icon" />
       </div>
     </div>
   );

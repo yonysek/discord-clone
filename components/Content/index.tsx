@@ -9,7 +9,7 @@ import Image from "next/image";
 // Chatting room with hardcoded messages
 export default function Content() {
   return (
-    <div className="pb-10 overflow-x-hidden">
+    <div className="w-full pb-12 overflow-x-hidden">
       <Text
         name="Katelynn"
         text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit."
@@ -68,7 +68,7 @@ const Text = ({
 
   // Text content with Next Image so the webpage loading time is faster.
   return (
-    <div className="p-4 text-black content-text dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
+    <div className="w-full p-4 text-black content-text dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
       <Image
         loader={() => imgUrl}
         src={imgUrl}
