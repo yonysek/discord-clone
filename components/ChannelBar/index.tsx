@@ -26,7 +26,15 @@ export default function ChannelBar() {
   }, [fetchRooms]);
 
   // Before data is rendered
-  if (!rooms) return <></>;
+  if (!rooms)
+    return (
+      <div className="flex flex-col justify-between ml-16 bg-dcSuperLightGray dark:bg-dcDarkGray w-80">
+        <div className="channel-bar">
+          <ChannelName name="Channel" />
+        </div>
+        <UserInfo />
+      </div>
+    );
 
   // Renders every room respectively
   const allRooms = rooms.map((room) => (
