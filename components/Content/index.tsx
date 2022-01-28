@@ -73,9 +73,9 @@ const Text = ({
         loader={() => imgUrl}
         src={imgUrl}
         alt="profile picture"
-        className="bg-gray-200 rounded-full border-1"
-        width="48"
-        height="48"
+        className="bg-gray-200 bg-cover rounded-full border-1"
+        width="50"
+        height="50"
       />
       <div>
         <h3 className="font-bold cursor-pointer">
